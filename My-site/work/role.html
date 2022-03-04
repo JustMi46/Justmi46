@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>角色界面</title>
+		<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="css/new_file.css">
+		<link rel="stylesheet" href="css/role.css">
+	</head>
+	<body>
+		<div class="top_nav">
+			<ul>
+				<img src="img/logo.png"/>
+				<a href="index.html"><li>首页</li></a>
+				<a href="role.html"><li class="active">角色</li></a>
+				<a href="#"><li>攻略</li></a>
+				<a href="#"><li>世界</li></a>
+				<a href="#"><li>社区</li></a>
+			</ul>
+		</div>
+		
+		<div class="intro_div">
+			
+		</div>
+		
+		<div class="role_div">
+			<img class="role_img" src="img/role/mm1.png" />
+		</div>
+		
+		<div class="select_div">
+			 <img src="img/role/left_arrow.png" class="left_arrow" />
+			 <img src="img/role/m1.png" class="avartar" />
+			 <img src="img/role/m1.png" class="avartar" />
+			 <img src="img/role/m1.png" class="avartar" />
+			 <img src="img/role/m1.png" class="avartar" />
+			 <img src="img/role/m1.png" class="avartar" />
+			 <img src="img/role/m1.png" class="avartar" />
+			 <img src="img/role/m1.png" class="avartar" />
+			 <img src="img/role/m1.png" class="avartar" />
+			 <img src="img/role/m1.png" class="avartar" />
+			 <img src="img/role/right_arrow.png" class="right_arrow" />
+		</div>
+		
+		<div class="role_bottom">
+			<div style="margin-top: 20px;">
+				<span>关于本站</span>
+				<span>︳网站招聘</span>
+				<span>︳联系我们</span>
+				<span>︳玩家投稿</span>
+				<span>︳游戏截图</span>
+				<span>︳手机客户端</span>
+			</div>
+			<div>COPY-RIGHT@2021-2022</div>
+			<div>Email:XXXXXXXX@email.com.cn</div>
+			<img src="img/logo.png"/>
+
+		</div>
+		
+	</body>
+<script src="js/role.js" type="text/javascript" charset="UTF-8"></script>
+
+<script type="text/javascript">
+
+
+	var cur_index = 0;
+	
+	change(cur_index);
+	
+	$(".avartar").each(function(index,e){
+		
+		$(this).attr("src",avatar_arr[index]);
+		
+		$(this).click(function(){
+			cur_index = index;
+			change(cur_index);
+			
+		})
+	})
+	
+	$(".left_arrow").click(function(){
+		if(cur_index > 0)
+		{
+			cur_index = cur_index -1;
+			change(cur_index)
+		}
+	})
+	
+	$(".right_arrow").click(function(){
+		if(cur_index < 9)
+		{
+			cur_index = cur_index +1;
+			change(cur_index)
+		}
+	})
+	
+	
+	function change(cur_index)
+	{
+		$(".selected").removeClass("selected")
+		$(".role_img").attr("src",img_arr[cur_index]);
+		$(".intro_div").html(intro_arr[cur_index]);
+		$(".avartar:eq("+cur_index+")").addClass("selected");
+	}
+
+</script>
+
+</html>
